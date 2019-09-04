@@ -63,7 +63,7 @@ void loop()
   //interval
     tempoAtual = millis();
     if (tempoAtual - tempoAnterior >= interval){
-      estado = led_desligado;
+      estado = led_aceso;
       led = !led;
       tempoAnterior = tempoAtual;
       digitalWrite(LED, led);
@@ -95,7 +95,7 @@ void loop()
     if (but_low - but_high >= 500)
       estado = led_aceso;
   //apertou botao low
-    else{
+    else if(!low && !high){
       estado = manter;
     }
   //interval
@@ -116,7 +116,7 @@ void loop()
     if (but_high - but_low >= 500)
       estado = led_aceso;
   //apertou botao high
-    else{
+    else if(!low && !high){
       estado = manter;
     }
   //interval
@@ -138,7 +138,7 @@ void loop()
     if (but_low - but_high >= 500)
       estado = led_desligado;
   //apertou botao low
-    else{
+    else if(!low && !high){
       estado = manter;
     }
   //interval
@@ -160,7 +160,7 @@ void loop()
     if (but_high - but_low >= 500)
       estado = led_desligado;
   //apertou botao high
-    else{
+    else if(!low && !high){
       estado = manter;
     }
   //interval
